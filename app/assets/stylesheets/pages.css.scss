@@ -1,0 +1,54 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.page {
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	width: 800px;
+
+	header {
+		background: #D7EDFF;
+		margin: 0 0 1em 0;
+		padding: 0.5em 1em;
+	}
+
+	.body {
+		font-size: 14px;
+		line-height: 1.5;
+		min-height: 700px;
+		padding: 1em;
+	}
+
+	footer {
+		background: #DDD;
+		bottom: 0;
+		margin: 1em 0 0 0;
+		padding: 0.5em 1em;
+	}
+}
+
+.page.edit {
+	header {
+		input[type=text] {
+			border: 1px dotted darken(#D7EDFF, 10%);
+			color: #333;
+			font-size: 18px;
+			font-weight: bold;
+			padding: 8px 4px;
+		}
+	}
+
+	.body {
+		textarea {
+			border: 1px dotted darken(#eee, 10%);
+			color: #333;
+			font-size: 14px;
+			height: 100%;
+			line-height: 1.5;
+			min-height: 700px;
+			padding: 8px 4px;
+			width: 98%;
+		}
+	}
+
+}

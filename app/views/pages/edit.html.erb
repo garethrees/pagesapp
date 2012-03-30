@@ -1,0 +1,43 @@
+<%= form_for(@page) do |f| %>
+<% if @page.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+    <ul>
+    <% @page.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<article class="page edit">
+
+  <header>
+    <h1><%= f.text_field :title %></h1>
+  </header>
+
+  <div class="body">
+    <%= f.text_area :body, :class => 'page-edit' %>
+  </div>
+
+  <footer>
+    <%= f.submit %> | 
+    <%= link_to 'Show', @page %> |
+    <%= link_to 'Back', pages_path %> |
+    <%= link_to 'Add text', "#", id: "addText" %>
+  </footer>
+
+</article>
+
+<% end %>
+
+<div id="add-link-to-page-dialog" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable">
+   <div style="height: 200px; min-height: 109px; width: auto;" class="ui-dialog-content ui-widget-content" id="dialog">
+      <ul>
+      <% Page.all.take(5).each do |page| %>
+        <li><%= link_to page.title, page %></li>
+      <% end %>
+      </ul>
+   </div>
+</div>
