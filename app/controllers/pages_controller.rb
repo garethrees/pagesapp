@@ -60,6 +60,11 @@ class PagesController < ApplicationController
     
     Rails.logger.info "ID: #{params[:id]}"
     Rails.logger.info "BODY: #{params[:page][:body].inspect}"
+
+    # Convert <div> line breaks to <p>
+    params[:page][:body] = params[:page][:body].gsub(/\<div\>/, '<p>')
+    params[:page][:body] = params[:page][:body].gsub(/\<\/div\>/, '</p>')
+    params[:page][:body] = params[:page][:body].gsub(/\<p\>\<br\>\<\/p\>/, '')
     
     respond_to do |format|
       if @page.update_attributes(params[:page])
