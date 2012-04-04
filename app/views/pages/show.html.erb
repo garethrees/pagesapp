@@ -14,18 +14,20 @@
   </header>
 
   <div id="toolbar" class="hidden">
-      <%= link_to 'Bold', "#", id: "bold" %> | 
-      <%= link_to 'Italic', "#", id: "italic" %> |
-      <%= link_to 'Link', "#", id: "url" %>
+    <%= link_to 'Bold', "#", id: "bold" %> | 
+    <%= link_to 'Italic', "#", id: "italic" %> |
+    <%= link_to 'Link', "#", id: "url" %> |
+    <%= link_to 'Page', "#", id: "insert-page" %>
   </div>
 
 
-  <div id="page-body" class="body" contenteditable="true">
+  <div id="page-body" class="body">
     <%= raw @page.body %>
   </div>
 
   <footer>
-    <%= link_to 'Edit', edit_page_path(@page) %> |
+    <%= link_to 'Edit', "#", id: "edit-this-page" %> | 
+    <%# link_to 'Edit', edit_page_path(@page) %>
     <%= link_to 'Back', pages_path %>
   </footer>
 

@@ -8,8 +8,6 @@
 
 $(document).ready(function(){
 
-    showToolbar();
-
     $("#page-body").focusout(function() {
         console.log("Focused Out");
         var data = $("#page-body").html();
@@ -35,7 +33,16 @@ $(document).ready(function(){
             error: function(jqXHR, textStatus) {
                 console.log( "Request failed: " + textStatus);
             }
-        })
+        });
+
+				// $('#page-body').attr('contenteditable', 'false');
+
+    });
+
+    $("#edit-this-page").click(function() {
+				showToolbar();
+        $('#page-body').attr('contenteditable', 'true');
+				$("#page-body").focus();
     });
 
     $("#toolbar #bold").click(function() {
@@ -47,6 +54,13 @@ $(document).ready(function(){
     $("#toolbar #url").click(function() {
         var user_url = prompt("Enter a URL:", "");
         document.execCommand('createlink',null,user_url);
+    });
+    $("#toolbar #insert-page").click(function() {
+        var page_title = prompt("Enter a title for your page:", "e.g. How to Draw");
+				var page_url = page_title.replace(/ /gi, "-");
+				var page_url = page_url.toLowerCase();
+				var link = page_title.link(page_url);
+        document.execCommand('inserthtml',null,link);
     });
 
 });
