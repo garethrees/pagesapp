@@ -1,0 +1,34 @@
+<style type="text/css" media="screen">
+    #toolbar {
+        margin: 10px 1em;
+    }
+    .hidden { display: none; }
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<article class="page">
+
+  <header>
+    <h1><%= @page %></h1>
+  </header>
+
+  <div id="toolbar" class="hidden">
+    <%= link_to 'Bold', "#", id: "bold" %> | 
+    <%= link_to 'Italic', "#", id: "italic" %> |
+    <%= link_to 'Link', "#", id: "url" %> |
+    <%= link_to 'Page', "#", id: "insert-page" %>
+  </div>
+
+
+  <div id="page-body" class="body">
+    <p>Click edit to create this page</p>
+  </div>
+
+  <footer>
+    <%= link_to 'Edit', "#", id: "edit-this-page" %> | 
+    <%# link_to 'Edit', edit_page_path(@page) %>
+    <%= link_to 'Back', pages_path %>
+  </footer>
+
+</article>

@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+ 
   # GET /pages
   # GET /pages.json
   def index
@@ -65,6 +67,7 @@ class PagesController < ApplicationController
     params[:page][:body] = params[:page][:body].gsub(/\<div\>/, '<p>')
     params[:page][:body] = params[:page][:body].gsub(/\<\/div\>/, '</p>')
     params[:page][:body] = params[:page][:body].gsub(/\<p\>\<br\>\<\/p\>/, '')
+    params[:page][:body] = params[:page][:body].gsub(/\<br\>/, '')
     
     respond_to do |format|
       if @page.update_attributes(params[:page])
@@ -89,4 +92,12 @@ class PagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+ 
+  def record_not_found
+    @page = params[:id]
+    render :template => "pages/not_found", :status => 404
+  end
+
 end
