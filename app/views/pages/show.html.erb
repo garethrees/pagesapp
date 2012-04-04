@@ -1,3 +1,10 @@
+<style type="text/css" media="screen">
+    #toolbar {
+        margin: 10px 1em;
+    }
+    .hidden { display: none; }
+</style>
+
 <p id="notice"><%= notice %></p>
 
 <article class="page">
@@ -6,7 +13,13 @@
     <h1><%= @page.title %></h1>
   </header>
 
-  <div class="body">
+  <div id="toolbar" class="hidden">
+      <%= link_to 'Bold', "#", id: "bold" %> | 
+      <%= link_to 'Italic', "#", id: "italic" %>
+  </div>
+
+
+  <div id="page-body" class="body" contenteditable="true">
     <%= raw @page.body %>
   </div>
 

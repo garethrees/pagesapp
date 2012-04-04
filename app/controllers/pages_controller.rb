@@ -57,11 +57,15 @@ class PagesController < ApplicationController
   # PUT /pages/1.json
   def update
     @page = Page.find(params[:id])
-
+    
+    Rails.logger.info "ID: #{params[:id]}"
+    Rails.logger.info "BODY: #{params[:page][:body].inspect}"
+    
     respond_to do |format|
       if @page.update_attributes(params[:page])
+        Rails.logger.info "UPDATED PAGE!"
         format.html { redirect_to @page, notice: 'Page was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render :json => @page }
       else
         format.html { render action: "edit" }
         format.json { render json: @page.errors, status: :unprocessable_entity }

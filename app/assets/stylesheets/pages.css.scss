@@ -15,8 +15,12 @@
 	.body {
 		font-size: 14px;
 		line-height: 1.5;
-		min-height: 700px;
+//      min-height: 700px;
 		padding: 1em;
+		p {
+		    font-size: 14px;
+    		line-height: 1.5;
+		}
 	}
 
 	footer {
@@ -45,7 +49,7 @@
 			font-size: 14px;
 			height: 100%;
 			line-height: 1.5;
-			min-height: 700px;
+//          min-height: 700px;
 			padding: 8px 4px;
 			width: 98%;
 		}
