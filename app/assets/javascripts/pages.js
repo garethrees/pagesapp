@@ -44,6 +44,10 @@ $(document).ready(function(){
     $("#toolbar #italic").click(function() {
         document.execCommand('italic',null,false);
     });
+    $("#toolbar #url").click(function() {
+        var user_url = prompt("Enter a URL:", "");
+        document.execCommand('createlink',null,user_url);
+    });
 
 });
 
